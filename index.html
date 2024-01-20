@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Signal generator</title>
+        <style>
+            .input {
+                width: 30px;
+            }
+
+            .container {
+                max-width: 800px;
+                width: 800px;
+                overflow-x: scroll;
+            }
+
+            .containerBody {
+                height: 500px;
+
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Generate custom signal</h1>
+        <p><span>Unit impulse: </span><input class="input" type="number" value="0" id="ui_coeff">
+            <span>δ(t+</span><input class="input" type="number" value="0" id="ui_shift"><span>)</span>
+            <button onclick="impulse()">Add</button>
+        </p>
+
+        <p><span>Unit step: </span><input class="input" type="number" value="0" id="us_coeff">
+            <span>u(t+</span><input class="input" type="number" value="0" id="us_shift"><span>)</span>
+            <button onclick="step()">Add</button>
+        </p>
+
+        <p><span>Unit ramp: </span><input class="input" type="number" value="0" id="ur_coeff">
+            <span>γ(t+</span><input class="input" type="number" value="0" id="ur_shift"><span>)</span>
+            <button onclick="ramp()">Add</button>
+        </p>
+
+        <p><h2>Resultant signal</h2>
+            <span id="resultant"></span>
+        </p>
+        <button onclick="reset()">Reset</button>
+        
+
+        <div class="container">
+            <div class="containerBody">
+                <canvas id="signalChart"></canvas>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
